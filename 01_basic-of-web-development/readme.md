@@ -1,9 +1,9 @@
-#### HTML5
+#### I. HTML5/CSS
 ![html5](../images/html5-cheat-sheet.jpg)
 
 Html5 có hỗ trợ Local Storage dùng để lưu trữ dữ liệu tạm. Hiện nay, mỗi cookie chỉ cho phép lưu trữ tối đa 4KB và vài chục cookie cho một domain. Vì thế cookie chỉ được dùng để lưu trữ những thông tin đơn giản và ngắn gọn như email, username,... Điều này khiến cho những trang web muốn nâng cao hiệu suất làm việc bằng cách cache dữ liệu tại client hầu như không thể thực hiện được. Local Storage có công dụng tương tự như cookie, có nghĩa là nó sẽ lưu trữ thông tin trên browser mà người dùng đang truy cập. Điểm khác biệt lớn nhất giữa Cookie và Local Storage là Local Storage cho phép bạn lưu trữ thông tin tương đối lớn lên đến 5MB, ngoài ra local storage không gửi thông tin lên server như Cookie.
 
-#### CSS3
+#### 1  CSS3
 
 CSS3 là một chuẩn mới nhất của CSS, hay nói cách khác nó là một Version mới của CSS. Nó được chia ra làm nhiều module và mỗi module sẽ có những nhiệm vụ khác nhau, khi kết hợp chúng với nhau sẽ tạo nên những hiệu ứng tuyệt vời.
 
@@ -20,7 +20,7 @@ CSS3 được tách nhỏ thành nhiều module và nó có luôn các module c�
 * Multiple Column Layout
 * User Interface
 
-##### 1. selector
+##### 1.1 selector
 
 ```
 * {
@@ -321,7 +321,338 @@ cũng có thể sử dụng để chọn tất cả các elements trong 1 elemen
   </tr>
 </tbody></table>
 
-##### 2. box model
+##### 1.2. box model
+
+Kết hợp ba thuộc tính margin, padding và border sẽ cho ta một mô hình với tên gọi là Box Model, Box Model thể hiện được sơ đồ các thuộc tính xác định vị trí của đối tượng HTML
+
+![boxmodel](../images/box-model.gif)
+
+Trong mô hình này thì:
+
+* Đường xọc ngoài cùng là đường biên 
+* Tiếp theo khoảng cách giữa đường biên so với đường border (màu xanh) ta gọi là margin.
+* Tiếp khoảng cách giữa border so với nội dung bên trong ta gọi là padding.
+
+##### 1.3 Media Queries
+
+Media Query là một trong những module mới được thêm vào trong CSS3. Nó là một sự cải thiện của Media Type đã có từ CSS2, bằng việc thêm vào những cú pháp query để ta có thể đáp ứng được cho nhiều device với nhiều kích cỡ màn hình khác nhau.
+
+Media Type vốn đã có từ CSS2, nó giúp ta xác định định dạng của mỗi loại thiết bị. Tất cả các giá trị của Media Type bao gồm
+
+* All: Dùng cho tất cả các loại Media Type
+* Aural: Dùng cho speech and sound synthesizers
+* Braille: Dùng cho các devices liên quan đến chữ nổi (braille)
+* Embossed: Dùng cho các loại máy in các trang braille
+* Handheld: Dùng cho các thiết bị nhỏ, thiết bị cầm tay
+* Print: Dùng cho máy in
+Projection: Dùng cho các loại máy chiếu
+* Screen: Dùng cho computer screen
+* Tty: Dùng cho các thiết bị sử dụng fixed-pitch character grid
+* Tv: Dùng cho các loại TV
+
+Ví dụ: Thay đổi background khi chiều rộng của màn hình thay đổi.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: tan;
+  color: black;
+}
+
+/* On screens that are 992px wide or less, the background color is blue */
+@media screen and (max-width: 992px) {
+  body {
+    background-color: blue;
+    color: white;
+  }
+}
+ background color
+/* On screens that are 600px wide or less, the is olive */
+@media screen and (max-width: 600px) {
+  body {
+    background-color: olive;
+    color: white;
+  }
+}
+</style>
+</head>
+<body>
+
+<h1>Resize the browser window to see the effect!</h1>
+<p>By default, the background color of the document is "tan". If the screen size is 992px or less, the color will change to "blue". If it is 600px or less, it will change to "olive".</p>
+
+</body>
+</html>
+```
+
+##### 1.4 Flexbox
+
+<b>display: flex</b>
+
+<b>flex-direction:</b> 
+* row
+* row-reverse;
+* column
+* column-reverse
+
+<b>flex-wrap: wrap</b>
+<b>flex-wrap: nowrap</b> The nowrap value specifies that the flex items will not wrap (this is default):
+<b>flex-wrap: wrap-reverse</b>
+
+The `flex-flow` property is a shorthand property for setting both the `flex-direction` and `flex-wrap` properties.
+
+<b>justify-content</b> The justify-content property is used to align the flex items
+
+* justify-content: center
+* justify-content: flex-start (default)
+* justify-content: flex-end
+* justify-content: space-around
+
+<b>align-items</b>  property is used to align the flex items vertically.
+
+* align-items: center
+* align-items: flex-start
+* align-items: flex-end
+* align-items: stretch (default)
+* align-items: baseline
+![flex](../images/flexbox1.png)
+
+<b>align-content</b>
+* `align-content: space-between` The space-between value displays the flex lines with equal space between them:
+* `align-content: space-around` The space-around value displays the flex lines with space before, between, and after them:
+
+* `align-content: stretch` The stretch value stretches the flex lines to take up the remaining space (this is default):
+* `align-content: center`  The center value displays display the flex lines in the middle of the container
+* `align-content: flex-start` The flex-start value displays the flex lines at the start of the container
+* `align-content: flex-end` The flex-end value displays the flex lines at the end of the container
+
+##### Child Elements (Items)
+
+<b>order</b>
+The `order` property specifies the order of the flex items
+
+* <b>flex-grow</b>
+The `flex-grow` property specifies how much a flex item will grow relative to the rest of the flex items
+
+* <b>flex-shrink</b>
+The `flex-shrink` property specifies how much a flex item will shrink relative to the rest of the flex items
+
+* <b>flex-basis</b>
+The `flex-basis` property specifies the initial length of a flex item.
+
+<b>align-self</b>
+
+The `align-self` property specifies the alignment for the selected item inside the flexible container.
+* `align-self: center`
+* `align-self: flex-start`
+* `align-self: flex-end`
+
+#### II. Vanilla JavaScript
 
 
-#### Box Model trong CSS
+#### 2.1 callback
+callback tức là ta truyền một đoạn code <b>(Hàm A)</b> này vào một đoạn code khác <b>(Hàm B)</b>. Tới một thời điểm nào đó, Hàm A sẽ được hàm B gọi lại <b>(callback)</b>.
+
+```javascript
+function doHomework(subject, callback) {
+  alert(`Starting my ${subject} homework.`);
+  callback();
+}
+
+doHomework('math', function() {
+  alert('Finished my homework');
+});
+```
+##### callback hell
+
+
+Code theo kiểu hàm gọi hàm liên tiếp như dưới đây gọi là callback hell. Các code kiểu này rất khó chịu và khó debug.
+
+```javascript
+function foo(cb) {
+    cb();
+}
+function bar(cb) {
+    cb();
+}
+function olala(cb) {
+    cb();
+}
+
+function do_it(){
+    foo(function() {
+        bar(function() {
+            olala(function() {
+                console.log("aizz.... ==!");
+            })
+        })
+    })
+}
+```
+
+Cách khắc phục: Code cho sạch lại hoặc sử dụng `promise` trong javascript.
+
+#### 2.2 Promise
+
+Sử dụng hàm `resolved()` trong promise
+
+```javascript
+<script>
+
+new Promise((resolve, reject) => {
+    console.log('Initial');
+
+    resolve();
+})
+.then(() => {
+
+    console.log('Do this');
+})
+.catch(() => {
+    console.log('Do that');
+})
+.then(() => {
+    console.log('Do this, no matter what happened before');
+});
+
+</script>
+
+```
+
+Sử dụng hàm `reject()` trong promise
+
+```javascript
+<script>
+
+new Promise((resolve, reject) => {
+    console.log('Initial');
+
+    reject();
+})
+.then(() => {
+
+    console.log('Do this');
+})
+.catch(() => {
+    console.log('Do that');
+})
+.then(() => {
+    console.log('Do this, no matter what happened before');
+});
+
+</script>
+```
+
+`catch()` trong promise sẽ được thực thi ngay khi `reject()` được gọi
+
+#### 2.3 Async/wait trong javascript
+hàm async (async / await). Hàm async cho phép ta viết các thao tác bất đồng bộ với phong cách của các mã đồng bộ. Bằng cách viết như vậy, mã nguồn của ta trông sẽ sáng sủa, dễ đọc hơn và "dễ hiểu hơn".
+
+async/await giúp các hàm cần đợi một xử lý bất đồng bộ.
+
+```javascript
+function wait(ms) {
+   return new Promise(r => setTimeout(r, ms))  
+}
+
+async function main() {
+   console.log('sắp rồi...')
+   await wait(2007)
+   console.log('chờ tí...')
+   await wait(2012)
+   console.log('thêm chút nữa thôi...')
+   await wait(2016)
+   console.log('xong rồi đấy!')
+}
+```
+
+`trycatch` trong `asyn`
+```javascript
+function wait(ms) {
+   if (ms > 2015) throw new Error(ms)
+   return new Promise(r => setTimeout(r, ms))
+}
+
+async function main() {
+	try {
+   console.log('sắp rồi...')
+   await wait(2007)
+   console.log('chờ tí...')
+   await wait(2012)
+   console.log('thêm chút nữa thôi...')
+   await wait(2016)
+   console.log('xong rồi đấy!')
+   } catch (e) {
+     console.log(`có vấn đề tại ${ e }`)
+   }
+}
+```
+
+
+#### 2.4 OOP trong JavaScript
+OOP trong javascript rất sida bởi vì nó không có từ khóa kế thừa `extends` như trong java, hay thậm chí từ khóa khai báo một class `class`.
+
+Trong javascript, để khai báo một đối tượng tất cả trường và hàm đều được bao đóng trong một `function`
+
+```javascript
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.showName = function() {
+     console.log(this.firstName + ' ' + this.lastName);
+  };
+}
+```
+Để kế thừa trong javascript ta dùng từ khóa `prototype`. rất củ chuối
+
+```javascript
+function Person() {
+  this.firstName = 'Per';
+  this.lastName = 'son';
+  this.sayName = function() { return this.firstName + ' ' + this.lastName };
+}
+
+// Viết một Constructor Function khác
+function SuperMan(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+SuperMan.prototype = new Person();
+var sm = new SuperMan('Nam', 'Huy');
+alert(sm.sayName());
+```
+
+
+
+#### 2.4 Prototype
+
+`prototype` cho phép một thêm vào một đối tượng các `propertie` cũng như các `function` bên ngoài đối tượng.
+
+Ví dụ:
+
+```javascript
+function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+}
+
+Person.prototype.nationality = "English";
+```
+
+```javascript
+function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+}
+
+Person.prototype.name = function() {
+  return this.firstName + " " + this.lastName;
+};
+```

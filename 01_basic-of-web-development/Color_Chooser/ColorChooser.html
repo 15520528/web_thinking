@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav">
+            <button class="button center" onclick="document.getElementById('id01').style.display='block'">Author</button>
+        </div>
+
+        <div id="id01" class="modal">
+            <div class="modal-content animate">
+                <div class="profile-header">
+                    <b style="color:white;" > Võ Huy Nam</b>
+                </div>
+                
+                <div>
+                    <img src="../../images/UIT.jpg" width="100%">
+                </div>
+            </div>
+        </div>
+            <div class="col-25">
+                <div id="color-show">
+                </div>
+                <p id="color-hex">#ffffff</p>
+            </div>
+            <div class="col-75">
+                <div class="slidecontainer">
+                    <p class="color-number">255</p>
+                    <input type="range" min="0" max="255" value="255" class="slider bg-red" id="red-choser" oninput="colorShow(this.value)">
+                </div>
+
+                <div class="slidecontainer">
+                    <p class="color-number ">255</p>
+                    <input type="range" min="0" max="255" value="255" class="slider bg-green" id="green-choser" oninput="colorShow(this.value)">
+                </div>
+
+                <div class="slidecontainer">
+                    <p class="color-number ">255</p>
+                    <input type="range" min="0" max="255" value="255" class="slider bg-blue" id="blue-choser" oninput="colorShow(this.value)">
+                </div>
+            </div>
+        </div>
+        <script src="ColorChooser.js"></script>
+</body>
+
+</html>
